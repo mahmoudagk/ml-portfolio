@@ -17,6 +17,8 @@ Run from the repository root with `python projects/adult-income/src/train.py`.
 
 On UCI's provided test split, the model reached ROC-AUC **0.904**, recall **0.841**, and F1 **0.672**. Full results are in [`artifacts/metrics.json`](artifacts/metrics.json).
 
+![Adult income model ROC curve and confusion matrix](images/results.png)
+
 ## Data source
 
 Becker, B. & Kohavi, R. (1996). [Adult, UCI Machine Learning Repository](https://doi.org/10.24432/C5XW20). Dataset license: CC BY 4.0.

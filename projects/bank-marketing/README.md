@@ -19,6 +19,8 @@ Run from the repository root with `python projects/bank-marketing/src/train.py`.
 
 On a stratified 20% holdout, the model reached ROC-AUC **0.752**, recall **0.596**, and F1 **0.370**. Full results and split details are in [`artifacts/metrics.json`](artifacts/metrics.json).
 
+![Bank marketing model ROC curve and confusion matrix](images/results.png)
+
 ## Data source
 
 Moro, S., Rita, P., & Cortez, P. (2014). [Bank Marketing, UCI Machine Learning Repository](https://doi.org/10.24432/C5K306). Dataset license: CC BY 4.0.

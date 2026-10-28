@@ -31,6 +31,8 @@ python run_all.py
 
 The scripts download the source data from UCI when run. They write cleaned CSV files to each project's `data/processed/` folder and save a fitted model plus `metrics.json` in `artifacts/`. Raw downloads are not committed.
 
+To regenerate the result images after training, run `python scripts/plot_results.py`. The diagnostic charts are saved in each project's `images/` folder and embedded in the project READMEs.
+
 ## Data and attribution
 
 All three datasets are from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/). See each project README for its dataset citation and task-specific notes. UCI lists these datasets under CC BY 4.0; attribution is included in the project documentation. The code in this repository is licensed under MIT; see [LICENSE](LICENSE).

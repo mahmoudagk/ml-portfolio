@@ -17,6 +17,8 @@ Run from the repository root with `python projects/wine-quality/src/train.py`.
 
 On a random 20% holdout, the model reached MAE **0.467**, RMSE **0.619**, and R² **0.460**. A constant-mean baseline scored MAE **0.705**. Full results are in [`artifacts/metrics.json`](artifacts/metrics.json).
 
+![Wine quality model predictions and error distribution](images/results.png)
+
 ## Data source
 
 Cortez, P., Cerdeira, A., Almeida, F., Matos, T., & Reis, J. (2009). [Wine Quality, UCI Machine Learning Repository](https://doi.org/10.24432/C56S3T). Dataset license: CC BY 4.0.

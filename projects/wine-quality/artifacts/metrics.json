@@ -1,0 +1,28 @@
+{
+  "task": "regression",
+  "rows_raw": 1599,
+  "rows_after_cleaning": 1359,
+  "features_used": [
+    "fixed_acidity",
+    "volatile_acidity",
+    "citric_acid",
+    "residual_sugar",
+    "chlorides",
+    "free_sulfur_dioxide",
+    "total_sulfur_dioxide",
+    "density",
+    "ph",
+    "sulphates",
+    "alcohol"
+  ],
+  "target_range": [
+    3.0,
+    8.0
+  ],
+  "test_size": 0.2,
+  "random_state": 42,
+  "mae": 0.46695646591970125,
+  "rmse": 0.6185425396991548,
+  "r2": 0.45988323859562885,
+  "mean_baseline_mae": 0.7048778342983928
+}

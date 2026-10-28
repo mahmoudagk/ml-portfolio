@@ -1,0 +1,33 @@
+{
+  "task": "binary classification",
+  "rows_raw": 45211,
+  "rows_after_deduplication": 45211,
+  "positive_rate": 0.11698480458295547,
+  "features_used": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "contact",
+    "day",
+    "month",
+    "campaign",
+    "pdays",
+    "previous",
+    "poutcome"
+  ],
+  "excluded_features": {
+    "duration": "Only known after a call; excluded to avoid target leakage."
+  },
+  "test_size": 0.2,
+  "random_state": 42,
+  "precision": 0.268054375531011,
+  "recall": 0.5964083175803403,
+  "f1": 0.3698710433763189,
+  "balanced_accuracy": 0.6903143654276154,
+  "roc_auc": 0.7517771388461114
+}

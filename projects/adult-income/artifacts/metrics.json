@@ -1,0 +1,31 @@
+{
+  "task": "binary classification",
+  "train_rows_raw": 32561,
+  "train_rows_used": 32561,
+  "test_rows_raw": 16281,
+  "test_rows_used": 16281,
+  "train_missing_cells_before_imputation": 4262,
+  "test_missing_cells_before_imputation": 2203,
+  "features_used": [
+    "age",
+    "workclass",
+    "fnlwgt",
+    "education",
+    "education-num",
+    "marital-status",
+    "occupation",
+    "relationship",
+    "race",
+    "sex",
+    "capital-gain",
+    "capital-loss",
+    "hours-per-week",
+    "native-country"
+  ],
+  "split": "official UCI adult.data / adult.test split",
+  "precision": 0.5601940065823662,
+  "recall": 0.8408736349453978,
+  "f1": 0.6724191703919327,
+  "balanced_accuracy": 0.8183459449355055,
+  "roc_auc": 0.903604233433511
+}

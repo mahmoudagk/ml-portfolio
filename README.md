@@ -2,15 +2,17 @@
 
 Five end-to-end tabular machine-learning projects built with Python and scikit-learn. Each project downloads a public UCI dataset, documents the cleaning steps, trains a model, and saves reproducible metrics and model artifacts.
 
+Each project is also available as its own standalone public repository. This repository remains the portfolio index and combined collection.
+
 ## Projects
 
-| Project | Task | Main model | Focus |
-|---|---|---|---|
-| [Bank Marketing](projects/bank-marketing/README.md) | Binary classification | Tuned histogram gradient boosting | 45K rows, 7 models, threshold analysis, campaign-duration leakage control |
-| [Adult Income](projects/adult-income/README.md) | Binary classification | Balanced logistic regression | Missing-value cleanup, mixed feature types, and evaluation limits |
-| [Wine Quality](projects/wine-quality/README.md) | Regression | Random forest regressor | Numeric data validation and regression metrics |
-| [Covertype Advanced](projects/covertype-advanced/README.md) | 7-class classification | Tuned multi-model benchmark | 581K rows, 54 source features, feature engineering, class imbalance, CV tuning |
-| [Bike Demand Forecasting](projects/bike-demand-forecast/README.md) | Hourly demand regression | Random forest benchmark winner | Chronological split, time-series tuning, leakage controls |
+| Project | Task | Main model | Focus | Standalone repo |
+|---|---|---|---|---|
+| [Bank Marketing](projects/bank-marketing/README.md) | Binary classification | Tuned histogram gradient boosting | 45K rows, 7 models, threshold analysis, campaign-duration leakage control | [Open](https://github.com/mahmoudagk/bank-marketing-term-deposit-prediction) |
+| [Adult Income](projects/adult-income/README.md) | Binary classification | Balanced logistic regression | Missing-value cleanup, mixed feature types, and evaluation limits | [Open](https://github.com/mahmoudagk/adult-income-classification) |
+| [Wine Quality](projects/wine-quality/README.md) | Regression | Random forest regressor | Numeric data validation and regression metrics | [Open](https://github.com/mahmoudagk/wine-quality-prediction) |
+| [Covertype Advanced](projects/covertype-advanced/README.md) | 7-class classification | Tuned multi-model benchmark | 581K rows, 54 source features, feature engineering, class imbalance, CV tuning | [Open](https://github.com/mahmoudagk/covertype-advanced) |
+| [Bike Demand Forecasting](projects/bike-demand-forecast/README.md) | Hourly demand regression | Random forest benchmark winner | Chronological split, time-series tuning, leakage controls | [Open](https://github.com/mahmoudagk/bike-demand-forecast) |
 
 ## Held-out results
 
@@ -45,4 +47,4 @@ All five datasets are from the [UCI Machine Learning Repository](https://archive
 
 ## بالعربي
 
-المستودع فيه ٥ مشاريع: شغّل `python run_all.py` لأول ٣ مشاريع، ومشروعي الغابات وتوقع الطلب على الدراجات لكل واحد أمر تشغيل منفصل. مشروع الدراجات بيقارن ٧ نماذج بتقسيم زمني يمنع تسرب بيانات المستقبل.
+المستودع فيه ٥ مشاريع، وكل مشروع له مستودع GitHub مستقل من الجدول فوق. شغّل `python run_all.py` لأول ٣ مشاريع، ومشروعي الغابات وتوقع الطلب على الدراجات لكل واحد أمر تشغيل منفصل. مشروع الدراجات بيقارن ٧ نماذج بتقسيم زمني يمنع تسرب بيانات المستقبل.

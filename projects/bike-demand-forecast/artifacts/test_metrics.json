@@ -1,0 +1,67 @@
+{
+  "task": "hourly bike rental demand regression",
+  "source_dataset": "UCI Bike Sharing Dataset, hourly file",
+  "rows": 17379,
+  "source_feature_count": 12,
+  "engineered_feature_count": 8,
+  "model_feature_count": 20,
+  "data_quality": {
+    "source_rows": 17379,
+    "clean_rows": 17379,
+    "exact_duplicates_removed": 0,
+    "rows_missing_timestamp_or_target_removed": 0,
+    "engineered_feature_count": 8,
+    "target_components_check": "cnt equals casual + registered; component columns excluded from model",
+    "date_start": "2011-01-01T00:00:00",
+    "date_end": "2012-12-31T23:00:00",
+    "source_model_signal_count": 12,
+    "model_feature_count": 20
+  },
+  "split": {
+    "method": "chronological; first 70% train, next 15% validation, final 15% test",
+    "train_rows": 12165,
+    "validation_rows": 2607,
+    "test_rows": 2607,
+    "train_end": "2012-05-27T01:00:00",
+    "validation_end": "2012-09-12T16:00:00",
+    "test_start": "2012-09-12T17:00:00",
+    "test_end": "2012-12-31T23:00:00"
+  },
+  "tuning": {
+    "model": "HistGradientBoostingRegressor",
+    "method": "RandomizedSearchCV with 3 expanding-window TimeSeriesSplit folds",
+    "scoring": "negative MAE with predictions clipped to zero",
+    "iterations": 7,
+    "best_parameters": {
+      "loss": "poisson",
+      "learning_rate": 0.05,
+      "max_iter": 100,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 60,
+      "l2_regularization": 0.1
+    },
+    "best_cv_mae": 56.39766969447039
+  },
+  "selected_model": "Random forest",
+  "selection_metric": "validation MAE",
+  "validation_metrics": {
+    "mae": 48.84910485073746,
+    "rmse": 76.57179591672153,
+    "r2": 0.8823436159765536,
+    "wape": 0.17381460585644734
+  },
+  "test_metrics": {
+    "mae": 56.54922777526353,
+    "rmse": 83.26995871534159,
+    "r2": 0.8501381297521908,
+    "wape": 0.23994335519727353
+  },
+  "model_file": "artifacts/bike_demand_model.joblib",
+  "target_leakage_controls": [
+    "dropped casual and registered component counts because cnt is their sum",
+    "dropped instant source row ID",
+    "used a chronological split rather than a random row split",
+    "refit only after selecting on validation; scored the held-out test once"
+  ],
+  "seed": 42
+}

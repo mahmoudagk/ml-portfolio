@@ -5,5 +5,7 @@ __pycache__/
 data/raw/
 projects/covertype-advanced/data/raw/
 projects/covertype-advanced/data/processed/
+projects/bike-demand-forecast/data/raw/
+projects/bike-demand-forecast/data/processed/
 .DS_Store
 Thumbs.db

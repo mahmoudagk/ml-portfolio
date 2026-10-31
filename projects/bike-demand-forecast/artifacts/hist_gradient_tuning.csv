@@ -1,0 +1,8 @@
+rank_test_score,mean_test_score,std_test_score,param_regressor__loss,param_regressor__learning_rate,param_regressor__max_iter,param_regressor__max_leaf_nodes,param_regressor__min_samples_leaf,param_regressor__l2_regularization
+1,-56.39766969447039,8.865292785230492,poisson,0.05,100,31,60,0.1
+2,-58.52429460863431,11.132788987766949,poisson,0.08,100,63,40,0.1
+3,-58.61109066585476,8.401669145837339,poisson,0.05,220,47,40,0.1
+4,-58.90372254859534,9.605590000164392,squared_error,0.1,300,47,25,1.0
+5,-60.57355656713393,13.789484836196102,absolute_error,0.03,220,31,40,1.0
+6,-60.85833080144196,13.143878294053655,absolute_error,0.08,150,15,40,0.0
+7,-61.04429781482471,15.134863599126744,absolute_error,0.03,150,63,15,0.1

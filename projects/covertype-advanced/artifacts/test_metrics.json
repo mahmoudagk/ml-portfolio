@@ -1,0 +1,63 @@
+{
+  "task": "7-class classification",
+  "source_dataset": "UCI Covertype (dataset id 31)",
+  "rows": 581012,
+  "source_feature_count": 54,
+  "engineered_feature_count": 8,
+  "model_feature_count": 62,
+  "split_rows": {
+    "train": 406708,
+    "validation": 87152,
+    "test": 87152
+  },
+  "model_comparison_train_rows": 150000,
+  "final_refit_rows": 200000,
+  "split_seed": 42,
+  "tuning": {
+    "method": "RandomizedSearchCV",
+    "cv": "3-fold stratified",
+    "scoring": "macro-F1",
+    "sample_rows": 15000,
+    "best_cv_macro_f1": 0.7269279709616621,
+    "best_parameters": {
+      "max_leaf_nodes": 31,
+      "max_iter": 80,
+      "learning_rate": 0.1,
+      "l2_regularization": 5.0
+    }
+  },
+  "tuning_results_reused": true,
+  "selected_model": "Random forest",
+  "selection_metric": "validation macro-F1",
+  "validation_macro_f1": 0.8644971809294024,
+  "test_metrics": {
+    "accuracy": 0.9178446851477877,
+    "balanced_accuracy": 0.8856450273284736,
+    "macro_f1": 0.8739557769724469,
+    "weighted_f1": 0.9179649100287338,
+    "macro_precision": 0.8630471833559131,
+    "macro_recall": 0.8856450273284736,
+    "macro_roc_auc_ovr": 0.9932920507568829,
+    "log_loss": 0.31380329333761775,
+    "predict_seconds": 1.2035374999977648
+  },
+  "class_names": {
+    "1": "Spruce/Fir",
+    "2": "Lodgepole Pine",
+    "3": "Ponderosa Pine",
+    "4": "Cottonwood/Willow",
+    "5": "Aspen",
+    "6": "Douglas-fir",
+    "7": "Krummholz"
+  },
+  "class_distribution": {
+    "1": 211840,
+    "2": 283301,
+    "3": 35754,
+    "4": 2747,
+    "5": 9493,
+    "6": 17367,
+    "7": 20510
+  },
+  "trained_at_utc": "2026-10-31T08:56:10.177514+00:00"
+}

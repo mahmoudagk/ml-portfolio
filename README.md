@@ -1,6 +1,6 @@
 # Machine Learning Portfolio
 
-Three end-to-end tabular machine-learning projects built with Python and scikit-learn. Each project downloads a public UCI dataset, documents the cleaning steps, trains a model, and saves reproducible metrics and model artifacts.
+Four end-to-end tabular machine-learning projects built with Python and scikit-learn. Each project downloads a public UCI dataset, documents the cleaning steps, trains a model, and saves reproducible metrics and model artifacts.
 
 ## Projects
 
@@ -9,6 +9,7 @@ Three end-to-end tabular machine-learning projects built with Python and scikit-
 | [Bank Marketing](projects/bank-marketing/README.md) | Binary classification | Balanced logistic regression | Imbalanced labels and avoiding campaign-duration leakage |
 | [Adult Income](projects/adult-income/README.md) | Binary classification | Balanced logistic regression | Missing-value cleanup, mixed feature types, and evaluation limits |
 | [Wine Quality](projects/wine-quality/README.md) | Regression | Random forest regressor | Numeric data validation and regression metrics |
+| [Covertype Advanced](projects/covertype-advanced/README.md) | 7-class classification | Tuned multi-model benchmark | 581K rows, 54 source features, feature engineering, class imbalance, CV tuning |
 
 ## Held-out results
 
@@ -17,6 +18,7 @@ Three end-to-end tabular machine-learning projects built with Python and scikit-
 | Bank Marketing | ROC-AUC **0.752**, F1 **0.370** (stratified 20% test split) |
 | Adult Income | ROC-AUC **0.904**, F1 **0.672** (official UCI test split) |
 | Wine Quality | MAE **0.467**, R² **0.460** (mean baseline MAE: 0.705) |
+| Covertype Advanced | Random Forest; test macro-F1 **0.874**, balanced accuracy **0.886** |
 
 See each `artifacts/metrics.json` for the full metric set and split details. These are educational baselines, not production claims.
 
@@ -33,10 +35,12 @@ The scripts download the source data from UCI when run. They write cleaned CSV f
 
 To regenerate the result images after training, run `python scripts/plot_results.py`. The diagnostic charts are saved in each project's `images/` folder and embedded in the project READMEs.
 
+The advanced forest-cover benchmark runs separately because it trains and compares several models: `python projects/covertype-advanced/src/train.py`.
+
 ## Data and attribution
 
-All three datasets are from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/). See each project README for its dataset citation and task-specific notes. UCI lists these datasets under CC BY 4.0; attribution is included in the project documentation. The code in this repository is licensed under MIT; see [LICENSE](LICENSE).
+All four datasets are from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/). See each project README for its dataset citation and task-specific notes. UCI lists these datasets under CC BY 4.0; attribution is included in the project documentation. The code in this repository is licensed under MIT; see [LICENSE](LICENSE).
 
 ## بالعربي
 
-المستودع فيه ٣ مشاريع كاملة: تنظيف البيانات، تجهيز الخصائص، تدريب المودل، وحفظ المقاييس والمودل. شغّل `python run_all.py` بعد تثبيت المتطلبات. البيانات الخام تُنزّل عند التشغيل، والبيانات المنظفة والنتائج تُحفظ داخل كل مشروع.
+المستودع فيه ٤ مشاريع: شغّل `python run_all.py` للمشاريع الثلاثة الأولى، وشغّل مشروع الغابات المتقدم منفصلًا لتدريب ومقارنة ٧ مودلات على ٥٤ خاصية أصلية وخصائص هندسية إضافية.

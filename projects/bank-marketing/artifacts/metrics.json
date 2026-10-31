@@ -1,7 +1,11 @@
 {
-  "task": "binary classification",
+  "task": "binary classification: term-deposit subscription",
+  "source_dataset": "UCI Bank Marketing bank-full.csv",
   "rows_raw": 45211,
   "rows_after_deduplication": 45211,
+  "duplicate_rows_removed": 0,
+  "unknown_category_cells_converted_to_missing": 52124,
+  "rows_with_missing_target_removed": 0,
   "positive_rate": 0.11698480458295547,
   "features_used": [
     "age",
@@ -20,14 +24,110 @@
     "previous",
     "poutcome"
   ],
+  "categorical_features": [
+    "job",
+    "marital",
+    "education",
+    "default",
+    "housing",
+    "loan",
+    "contact",
+    "month",
+    "poutcome"
+  ],
   "excluded_features": {
-    "duration": "Only known after a call; excluded to avoid target leakage."
+    "duration": "Known only after a call; excluded for a pre-call prediction scenario."
   },
-  "test_size": 0.2,
-  "random_state": 42,
-  "precision": 0.268054375531011,
-  "recall": 0.5964083175803403,
-  "f1": 0.3698710433763189,
-  "balanced_accuracy": 0.6903143654276154,
-  "roc_auc": 0.7517771388461114
+  "cleaning_notes": {
+    "unknown_category": "Converted to missing; categorical imputation is fitted inside each model pipeline.",
+    "duplicates": "Exact duplicate rows removed before splitting."
+  },
+  "split": {
+    "method": "stratified 60% train / 20% validation / 20% test",
+    "seed": 42,
+    "train_rows": 27126,
+    "validation_rows": 9042,
+    "test_rows": 9043
+  },
+  "tuning": {
+    "model": "HistGradientBoostingClassifier",
+    "method": "7 randomized parameter configurations, stratified 3-fold cross-validation",
+    "selection_metric": "average precision",
+    "best_cv_average_precision": 0.4156801225344737,
+    "best_parameters": {
+      "min_samples_leaf": 60,
+      "max_leaf_nodes": 31,
+      "max_iter": 220,
+      "learning_rate": 0.05,
+      "l2_regularization": 0.0
+    }
+  },
+  "models_compared": [
+    "Histogram gradient boosting tuned",
+    "Random forest",
+    "Extra trees",
+    "Logistic regression",
+    "SGD log-loss",
+    "Decision tree",
+    "Prior baseline"
+  ],
+  "validation_leaderboard_metric": "average_precision",
+  "selected_model": "Histogram gradient boosting tuned",
+  "validation_metrics_at_selected_threshold": {
+    "threshold": 0.62,
+    "precision": 0.4442662389735365,
+    "recall": 0.5236294896030246,
+    "f1": 0.4806941431670282,
+    "balanced_accuracy": 0.718415446204318,
+    "roc_auc": 0.7884062075000663,
+    "average_precision": 0.454506124880856,
+    "brier_score": 0.15823515404521313,
+    "predicted_positive_rate": 0.13791196637911968
+  },
+  "threshold_selection": {
+    "method": "maximize validation F1 on thresholds 0.05 through 0.95",
+    "threshold": 0.62
+  },
+  "test_metrics_at_selected_threshold": {
+    "threshold": 0.62,
+    "precision": 0.4617968094038623,
+    "recall": 0.5198487712665406,
+    "f1": 0.48910626945309027,
+    "balanced_accuracy": 0.7197866273364638,
+    "roc_auc": 0.7907655303599731,
+    "average_precision": 0.45054665926806187,
+    "brier_score": 0.1587645868570314,
+    "predicted_positive_rate": 0.13170408050425744
+  },
+  "test_metrics_at_default_threshold_0_5": {
+    "threshold": 0.5,
+    "precision": 0.35738068812430634,
+    "recall": 0.6086956521739131,
+    "f1": 0.45034965034965035,
+    "balanced_accuracy": 0.7318368680406196,
+    "roc_auc": 0.7907655303599731,
+    "average_precision": 0.45054665926806187,
+    "brier_score": 0.1587645868570314,
+    "predicted_positive_rate": 0.19927015371005197
+  },
+  "confusion_matrix_at_selected_threshold": [
+    [
+      7344,
+      641
+    ],
+    [
+      508,
+      550
+    ]
+  ],
+  "target_counts": {
+    "no": 39922,
+    "yes": 5289
+  },
+  "test_target_counts": {
+    "no": 7985,
+    "yes": 1058
+  },
+  "model_file": "artifacts/bank_marketing_model.joblib",
+  "seed": 42
 }

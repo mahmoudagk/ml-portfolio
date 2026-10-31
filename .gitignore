@@ -3,6 +3,7 @@ __pycache__/
 .venv/
 .env
 data/raw/
+projects/bank-marketing/data/raw/
 projects/covertype-advanced/data/raw/
 projects/covertype-advanced/data/processed/
 projects/bike-demand-forecast/data/raw/

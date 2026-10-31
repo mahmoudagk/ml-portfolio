@@ -64,10 +64,10 @@ def plot_roc(ax, y_true: pd.Series, probability: np.ndarray) -> float:
     return score
 
 
-def plot_confusion(ax, y_true: pd.Series, predicted: np.ndarray) -> None:
+def plot_confusion(ax, y_true: pd.Series, predicted: np.ndarray, threshold: float = 0.5) -> None:
     matrix = confusion_matrix(y_true, predicted, labels=[0, 1])
     ax.imshow(matrix, cmap="Blues")
-    ax.set_title("Predictions at the 0.50 threshold", loc="left", fontsize=14, pad=15)
+    ax.set_title(f"Predictions at threshold {threshold:.2f}", loc="left", fontsize=14, pad=15)
     ax.set_xlabel("Predicted label")
     ax.set_ylabel("Actual label")
     ax.set_xticks([0, 1], labels=["No", "Yes"])
@@ -87,15 +87,21 @@ def bank_marketing() -> None:
         data[features], data["y"].map({"no": 0, "yes": 1}),
         test_size=0.2, random_state=42, stratify=data["y"],
     )
-    model = joblib.load(project / "artifacts" / "bank_marketing_model.joblib")
+    saved = joblib.load(project / "artifacts" / "bank_marketing_model.joblib")
+    if isinstance(saved, dict):
+        model = saved["model"]
+        threshold = float(saved["threshold"])
+    else:
+        model = saved
+        threshold = 0.5
     probability = model.predict_proba(X_test)[:, 1]
-    predicted = model.predict(X_test)
+    predicted = (probability >= threshold).astype(int)
     fig, axes = canvas(
         "Bank marketing | Term-deposit response",
-        "Stratified 20% holdout  •  9,043 customers  •  Call duration excluded to avoid leakage",
+        f"Stratified 60/20/20 split  •  {len(X_test):,} test customers  •  threshold {threshold:.2f} selected on validation",
     )
     plot_roc(axes[0], y_test, probability)
-    plot_confusion(axes[1], y_test, predicted)
+    plot_confusion(axes[1], y_test, predicted, threshold)
     fig.savefig(project / "images" / "results.png", dpi=160, facecolor=fig.get_facecolor())
     plt.close(fig)
 

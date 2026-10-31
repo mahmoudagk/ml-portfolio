@@ -6,7 +6,7 @@ Five end-to-end tabular machine-learning projects built with Python and scikit-l
 
 | Project | Task | Main model | Focus |
 |---|---|---|---|
-| [Bank Marketing](projects/bank-marketing/README.md) | Binary classification | Balanced logistic regression | Imbalanced labels and avoiding campaign-duration leakage |
+| [Bank Marketing](projects/bank-marketing/README.md) | Binary classification | Tuned histogram gradient boosting | 45K rows, 7 models, threshold analysis, campaign-duration leakage control |
 | [Adult Income](projects/adult-income/README.md) | Binary classification | Balanced logistic regression | Missing-value cleanup, mixed feature types, and evaluation limits |
 | [Wine Quality](projects/wine-quality/README.md) | Regression | Random forest regressor | Numeric data validation and regression metrics |
 | [Covertype Advanced](projects/covertype-advanced/README.md) | 7-class classification | Tuned multi-model benchmark | 581K rows, 54 source features, feature engineering, class imbalance, CV tuning |
@@ -16,7 +16,7 @@ Five end-to-end tabular machine-learning projects built with Python and scikit-l
 
 | Project | Results |
 |---|---|
-| Bank Marketing | ROC-AUC **0.752**, F1 **0.370** (stratified 20% test split) |
+| Bank Marketing | ROC-AUC **0.791**, average precision **0.451**, F1 **0.489** (validation-selected threshold) |
 | Adult Income | ROC-AUC **0.904**, F1 **0.672** (official UCI test split) |
 | Wine Quality | MAE **0.467**, R² **0.460** (mean baseline MAE: 0.705) |
 | Covertype Advanced | Random Forest; test macro-F1 **0.874**, balanced accuracy **0.886** |
@@ -35,7 +35,7 @@ python run_all.py
 
 The scripts download the source data from UCI when run. They write cleaned CSV files to each project's `data/processed/` folder and save a fitted model plus `metrics.json` in `artifacts/`. Raw downloads are not committed.
 
-To regenerate the result images for the original three projects, run `python scripts/plot_results.py`. The two newer standalone projects regenerate their diagnostic charts when their training scripts run.
+To regenerate the result images for the original three projects, run `python scripts/plot_results.py`. The standalone forest-cover and bike-demand projects write their main diagnostic charts when trained; the bike project also has a separate script for its supplementary charts.
 
 The advanced forest-cover benchmark runs separately because it trains and compares several models: `python projects/covertype-advanced/src/train.py`. The bike-demand forecast also runs separately: `python projects/bike-demand-forecast/src/train.py`.
 

@@ -1,5 +1,9 @@
 # Bike Demand Forecasting (Hourly)
 
+![Vertical cover for the bike demand forecasting project](images/cover.png)
+
+Editable vector artwork: [`images/cover.svg`](images/cover.svg).
+
 ## Goal
 
 Forecast the total number of bikes rented in an hour from calendar and weather information. This is a new project in the portfolio and uses a chronological holdout so the test set comes strictly after training and validation in time.

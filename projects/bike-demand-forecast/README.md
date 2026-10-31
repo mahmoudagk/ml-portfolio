@@ -39,6 +39,30 @@ The strongest validation permutation signals were hour-of-day and weekend featur
 
 Full metric and split details are in [`artifacts/test_metrics.json`](artifacts/test_metrics.json), the complete leaderboard is in [`artifacts/validation_leaderboard.csv`](artifacts/validation_leaderboard.csv), and test predictions are in [`artifacts/test_predictions.csv`](artifacts/test_predictions.csv). The fitted model is [`artifacts/bike_demand_model.joblib`](artifacts/bike_demand_model.joblib).
 
+## Additional visualizations
+
+The supplementary figures are generated with `python projects/bike-demand-forecast/src/plot_analysis.py`.
+
+### Demand by hour and day type
+
+![Average hourly rentals for working days and weekends or holidays](images/hourly_demand_patterns.png)
+
+### Full chronological test period
+
+This shows daily totals and rolling averages across the held-out period. Partial days with fewer than 24 observations are omitted from the daily comparison.
+
+![Actual and predicted daily rentals during the test period](images/test_period_forecast.png)
+
+### Test error analysis
+
+![Actual versus predicted rentals and test MAE by hour](images/test_error_analysis.png)
+
+### Season and weather summaries
+
+These are unadjusted averages; sample counts appear above each bar.
+
+![Average rentals by season and weather code](images/season_weather_profiles.png)
+
 ## Run
 
 From the repository root:
@@ -46,9 +70,10 @@ From the repository root:
 ```bash
 python -m pip install -r requirements.txt
 python projects/bike-demand-forecast/src/train.py
+python projects/bike-demand-forecast/src/plot_analysis.py
 ```
 
-The 3-fold tuning results are saved and reused on later runs. Add `--retune` to repeat the hyperparameter search. Raw downloads, the engineered CSV, and the fitted model's inputs are reproducible from the script.
+The 3-fold tuning results are saved and reused on later runs. Add `--retune` to repeat the hyperparameter search. The plot script regenerates the four supplementary figures. Raw downloads and the engineered CSV are reproducible from the scripts and remain excluded from Git.
 
 ## Dataset citation and limits
 
